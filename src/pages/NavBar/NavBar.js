@@ -14,7 +14,7 @@ const NavBar = () => {
             className=" text-dark fw-bolder text-decoration-none"
             to="/home"
           >
-            <img style={{ width: "130px" }} src={logo} />
+            <img style={{ width: "110px" }} src={logo} />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
