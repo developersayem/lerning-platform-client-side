@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className=" container mt-5 pt-5 d-grid flex-md-column flex-lg-row">
       <div className=" row">
-        <div className="border col-12 col-lg-6">
+        <div className="col-12 col-lg-6">
           <img style={{ width: "80%" }} src={hero} alt="" />
         </div>
         <div className=" mt-5  col-12 col-lg-6 ">

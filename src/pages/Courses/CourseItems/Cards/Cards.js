@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 
 const Cards = ({ item }) => {
   console.log(item);
-  const { img, title, students, ratings, rating, price, author } = item;
+  const { img, title, students, ratings, rating, price, author, id } = item;
   return (
     <div className="col-12 col-lg-6 m-0 p-3">
-      <Link className="text-decoration-none" to="/">
+      <Link
+        className="text-decoration-none"
+        to={`/courses/categories/details/${id}`}
+      >
         <Card>
           <Card.Img variant="top" src={img} />
           <Card.Body className="bg-dark">
