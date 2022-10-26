@@ -16,6 +16,7 @@ const CourseDetails = () => {
     author,
     details,
     language,
+    id,
   } = data;
   const ref = React.createRef();
   const options = {
@@ -66,7 +67,7 @@ const CourseDetails = () => {
           <Button variant="warning" className="w-25">
             <Link
               className="text-decoration-none text-dark fw-bold"
-              to="/chackout"
+              to={`/courses/categories/details/chackout/${id}`}
             >
               Get Premium Access
             </Link>

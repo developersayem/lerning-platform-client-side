@@ -7,6 +7,7 @@ import Courses from "../../pages/Courses/Courses";
 import Faq from "../../pages/Faq/Faq";
 import CourseDetails from "../../pages/Courses/CoursesDetails/CourseDetails";
 import ChackOut from "../../pages/ChackOut/ChackOut";
+import NotFound from "../../pages/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -30,8 +31,16 @@ export const router = createBrowserRouter([
         element: <Blogs></Blogs>,
       },
       {
-        path: "/chackout",
+        path: "/courses/categories/details/chackout/:id",
         element: <ChackOut></ChackOut>,
+        loader: async ({ params }) =>
+          fetch(
+            `https://lerning-platform-server-side-sayemmolla012-outlookcom.vercel.app/courses/categories/details/${params.id}`
+          ),
+      },
+      {
+        path: "*",
+        element: <NotFound></NotFound>,
       },
       {
         path: "/courses/categories/details/:id",
