@@ -7,7 +7,7 @@ import logo from "../../images/logo.png";
 
 const NavBar = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="info" variant="light">
+    <Navbar sticky="top" collapseOnSelect expand="lg" bg="info" variant="light">
       <Container>
         <Navbar.Brand>
           <Link
@@ -21,16 +21,28 @@ const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Link className="text-decoration-none text-white m-1" to="/home">
+            <Link
+              className="text-decoration-none text-dark fw-bold m-1"
+              to="/home"
+            >
               Home
             </Link>
-            <Link className="text-decoration-none text-white m-1" to="/courses">
+            <Link
+              className="text-decoration-none text-dark fw-bold m-1"
+              to="/courses"
+            >
               Courses
             </Link>
-            <Link className="text-decoration-none text-white m-1" to="/faq">
+            <Link
+              className="text-decoration-none text-dark fw-bold m-1"
+              to="/faq"
+            >
               FAQ
             </Link>
-            <Link className="text-decoration-none text-white m-1" to="/blogs">
+            <Link
+              className="text-decoration-none text-dark fw-bold m-1"
+              to="/blogs"
+            >
               Blogs
             </Link>
           </Nav>
