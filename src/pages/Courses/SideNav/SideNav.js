@@ -16,9 +16,9 @@ const SideNav = () => {
   return (
     <div>
       <h1 className="mt-5 ms-4 mb-4">Categories</h1>
-      <div className="ms-5 ps-4">
+      <div className="">
         <Link className="text-decoration-none text-dark" to="/courses">
-          <Button variant="light">ALL Courses</Button>
+          <Button variant="link">ALL Courses</Button>
         </Link>
       </div>
       {categories.map((Category) => (

@@ -4,10 +4,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
+import SideNav from "../Courses/SideNav/SideNav";
 
 const NavBar = () => {
   return (
-    <Navbar sticky="top" collapseOnSelect expand="lg" bg="info" variant="light">
+    <Navbar
+      sticky="top"
+      collapseOnSelect
+      expand="lg"
+      bg="warning"
+      variant="light"
+    >
       <Container>
         <Navbar.Brand>
           <NavLink
@@ -57,6 +64,9 @@ const NavBar = () => {
             >
               Blogs
             </NavLink>
+            <div className="d-block d-md-block d-lg-none ">
+              <SideNav></SideNav>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -6,9 +6,9 @@ const Cards = ({ item }) => {
   console.log(item);
   const { img, title, students, ratings, rating, price, author } = item;
   return (
-    <div className="col-12 col-lg-6 mb-5">
-      <Link className="text-decoration-none" to="/courses">
-        <Card style={{ width: "20rem" }}>
+    <div className="col-12 col-lg-6 m-0 p-3">
+      <Link className="text-decoration-none" to="/">
+        <Card>
           <Card.Img variant="top" src={img} />
           <Card.Body className="bg-dark">
             <Card.Title className="m-0 text-info">{title}</Card.Title>

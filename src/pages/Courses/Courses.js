@@ -4,8 +4,8 @@ import SideNav from "./SideNav/SideNav";
 
 const Courses = () => {
   return (
-    <div className="d-flex container ">
-      <div className="w-25">
+    <div className="d-flex  container ">
+      <div className="w-25 d-none d-lg-block">
         <SideNav></SideNav>
       </div>
       <div className="w-75 mt-5 pt-3 ms-5">
