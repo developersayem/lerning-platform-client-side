@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
 
 const NavBar = () => {
@@ -10,41 +10,53 @@ const NavBar = () => {
     <Navbar sticky="top" collapseOnSelect expand="lg" bg="info" variant="light">
       <Container>
         <Navbar.Brand>
-          <Link
+          <NavLink
             className=" text-dark fw-bolder text-decoration-none"
             to="/home"
           >
             <img style={{ width: "110px" }} src={logo} />
-          </Link>
+          </NavLink>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Link
-              className="text-decoration-none text-dark fw-bold m-1"
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "#fff" : "#545e6f",
+              })}
+              className="text-decoration-none  fw-bold m-1"
               to="/home"
             >
               Home
-            </Link>
-            <Link
-              className="text-decoration-none text-dark fw-bold m-1"
+            </NavLink>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "#fff" : "#545e6f",
+              })}
+              className="text-decoration-none  fw-bold m-1"
               to="/courses"
             >
               Courses
-            </Link>
-            <Link
-              className="text-decoration-none text-dark fw-bold m-1"
+            </NavLink>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "#fff" : "#545e6f",
+              })}
+              className="text-decoration-none  fw-bold m-1"
               to="/faq"
             >
               FAQ
-            </Link>
-            <Link
-              className="text-decoration-none text-dark fw-bold m-1"
+            </NavLink>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "#fff" : "#545e6f",
+              })}
+              className="text-decoration-none  fw-bold m-1"
               to="/blogs"
             >
               Blogs
-            </Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
