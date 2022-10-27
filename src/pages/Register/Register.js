@@ -20,10 +20,10 @@ const Register = () => {
     console.log(name, email, password);
     creteUser(email, password)
       .then((result) => {
-        setSuccess(true);
         form.reset();
+        setSuccess(true);
         updateUser(name, photoURL)
-          .then(() => alert("profile updated successfully"))
+          .then(() => {})
           .cacth((err) => console.error(err));
       })
       .cacth((err) => {
@@ -34,6 +34,14 @@ const Register = () => {
   return (
     <div className="container mt-5 d-flex justify-content-center ">
       <Form className="border p-5 w-75" onSubmit={handleRegister}>
+        <h3 className="d-flex justify-content-center">Please Register</h3>
+        {success ? (
+          <p className="d-flex text-success justify-content-center">
+            User Create successfully
+          </p>
+        ) : (
+          <></>
+        )}
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Full Name</Form.Label>
           <Form.Control name="name" type="text" placeholder="Full Name" />

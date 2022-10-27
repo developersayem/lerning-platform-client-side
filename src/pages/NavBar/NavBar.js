@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,17 +6,25 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Contexts/UserContex";
 import logo from "../../images/logo.png";
 import SideNav from "../Courses/SideNav/SideNav";
-
+import { FaSun, FaMoon } from "react-icons/fa";
 const NavBar = () => {
   const { user, LogOut } = useContext(AuthContext);
-  console.log(user);
+
+  const [dark, setDark] = useState(false);
+
+  const toggleDark = () => {
+    setDark(true);
+  };
+  const togglelight = () => {
+    setDark(false);
+  };
 
   return (
     <Navbar
+      className="bg-warning"
       sticky="top"
       collapseOnSelect
       expand="lg"
-      bg="warning"
       variant="light"
     >
       <Container>
@@ -106,23 +114,41 @@ const NavBar = () => {
               {user?.email ? (
                 <div>
                   <img
+                    data-bs-placement="bottom"
+                    title={user.displayName}
                     style={({ width: "50px" }, { height: "50px" })}
-                    className=" rounded me-3"
+                    className=" rounded-circle me-3"
                     src={user?.photoURL}
                     alt="Profile"
                   />
-                  <Link
+                  <button
                     className="btn btn-dark text-decoration-none text-white fw-bold"
                     onClick={LogOut}
-                    to=""
                   >
                     Log Out
-                  </Link>
+                  </button>
                 </div>
               ) : (
                 <></>
               )}
             </div>
+          </div>
+          <div className="ms-3">
+            {dark ? (
+              <button
+                onClick={togglelight}
+                className="btn bg-transparent border-0 text-dark text-white fs-5 mb-2"
+              >
+                <FaMoon />
+              </button>
+            ) : (
+              <button
+                onClick={toggleDark}
+                className="btn bg-transparent border-0 text-dark text-white fs-5  mb-2"
+              >
+                <FaSun />
+              </button>
+            )}
           </div>
         </Navbar.Collapse>
       </Container>

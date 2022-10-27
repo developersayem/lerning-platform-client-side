@@ -10,6 +10,7 @@ import ChackOut from "../../pages/ChackOut/ChackOut";
 import NotFound from "../../pages/NotFound/NotFound";
 import Register from "../../pages/Register/Register";
 import LogIn from "../../pages/LogIn/LogIn";
+import PrivateRoute from "../Private/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +43,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courses/categories/details/chackout/:id",
-        element: <ChackOut></ChackOut>,
+        element: (
+          <PrivateRoute>
+            <ChackOut></ChackOut>
+          </PrivateRoute>
+        ),
         loader: async ({ params }) =>
           fetch(
             `https://lerning-platform-server-side-sayemmolla012-outlookcom.vercel.app/courses/categories/details/${params.id}`

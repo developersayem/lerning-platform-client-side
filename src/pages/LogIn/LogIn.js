@@ -7,24 +7,47 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const [success, setSuccess] = useState(false);
+  const [err, setErr] = useState(false);
   const { LogInUser, googleLogin, githubLogin } = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    LogInUser(email, password).then((result) => {
-      setSuccess(true);
-      form.reset();
-      Navigate(from, { replace: true });
-    });
+    LogInUser(email, password)
+      .then((result) => {
+        setSuccess(true);
+        setErr(false);
+        form.reset();
+        Navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setErr(true);
+        setSuccess(false);
+      });
   };
   return (
     <div className="container mt-5 d-flex justify-content-center">
       <Form className="border p-5 w-75" onSubmit={handleLogin}>
+        <h3 className="d-flex justify-content-center">Please Log In</h3>
+        {success ? (
+          <p className="d-flex text-success justify-content-center">
+            User Log In successfully
+          </p>
+        ) : (
+          <></>
+        )}
+        {err ? (
+          <p className="d-flex justify-content-center text-danger">
+            Email and Password doesn's match!!
+          </p>
+        ) : (
+          <></>
+        )}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control name="email" type="email" placeholder="Enter email" />
