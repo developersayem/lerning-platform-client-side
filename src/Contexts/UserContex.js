@@ -6,6 +6,9 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
 
@@ -25,6 +28,21 @@ const UserContext = ({ children }) => {
     return signOut(auth);
   };
 
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  const googleLogin = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => console.log(result))
+      .catch((err) => console.error(err));
+  };
+
+  const githubLogin = () => {
+    signInWithPopup(auth, githubProvider)
+      .then((result) => console.log(result))
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     const unSubcribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -42,7 +60,15 @@ const UserContext = ({ children }) => {
     });
   };
 
-  const authInfo = { user, creteUser, LogInUser, LogOut, updateUser };
+  const authInfo = {
+    user,
+    creteUser,
+    LogInUser,
+    LogOut,
+    updateUser,
+    googleLogin,
+    githubLogin,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

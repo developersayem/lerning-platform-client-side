@@ -6,7 +6,8 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../Contexts/UserContex";
 
 const Register = () => {
-  const { creteUser, updateUser } = useContext(AuthContext);
+  const { creteUser, updateUser, googleLogin, githubLogin } =
+    useContext(AuthContext);
   const [success, setSuccess] = useState(false);
 
   const handleRegister = (event) => {
@@ -19,11 +20,11 @@ const Register = () => {
     console.log(name, email, password);
     creteUser(email, password)
       .then((result) => {
+        setSuccess(true);
+        form.reset();
         updateUser(name, photoURL)
           .then(() => alert("profile updated successfully"))
           .cacth((err) => console.error(err));
-        setSuccess(true);
-        form.reset();
       })
       .cacth((err) => {
         console.error(err);
@@ -49,7 +50,7 @@ const Register = () => {
             placeholder="Password"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="formBasicphotoURL">
           <Form.Label>Photo URL</Form.Label>
           <Form.Control name="photoURL" type="text" placeholder="Photo URL" />
         </Form.Group>
@@ -67,10 +68,18 @@ const Register = () => {
           <p className="fw-bold">OR</p>
         </div>
         <div className="d-flex justify-content-between w-100">
-          <Button className="w-50 me-3" variant="outline-success" type="submit">
+          <Button
+            className="w-50 me-3"
+            variant="outline-success"
+            onClick={googleLogin}
+          >
             <FaGoogle />
           </Button>
-          <Button className="w-50 ms-3" variant="outline-dark" type="submit">
+          <Button
+            className="w-50 ms-3"
+            variant="outline-dark"
+            onClick={githubLogin}
+          >
             <FaGithub />
           </Button>
         </div>

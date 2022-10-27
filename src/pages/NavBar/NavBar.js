@@ -73,56 +73,57 @@ const NavBar = () => {
             >
               Blogs
             </NavLink>
-            {/* ------------------------------------------------- */}
-            <div className="d-block d-md-block d-lg-none ">
-              <SideNav></SideNav>
-            </div>
-            {/* ------------------------------------------------- */}
-
-            <div className="ms-3 d-flex">
-              <div>
-                {!user?.email ? (
-                  <div>
-                    <Link
-                      to="/login"
-                      className="btn btn-dark text-decoration-none text-white fw-bold me-3"
-                    >
-                      Login
-                    </Link>
-                    <Link
-                      to="register"
-                      className="btn btn-dark text-decoration-none text-white fw-bold"
-                    >
-                      Register
-                    </Link>
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <div>
-                {user?.email ? (
-                  <div className="">
-                    <img
-                      style={({ width: "50px" }, { height: "50px" })}
-                      className="rounded-circle me-2"
-                      src={user?.photoURL}
-                      alt=""
-                    />
-                    <Link
-                      className="btn btn-dark text-decoration-none text-white fw-bold"
-                      onClick={LogOut}
-                      to=""
-                    >
-                      Log Out
-                    </Link>
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </div>
-            </div>
           </Nav>
+
+          {/* ------------------------------------------------- */}
+          <div className="d-block d-md-block d-lg-none ">
+            <SideNav></SideNav>
+          </div>
+          {/* ------------------------------------------------- */}
+
+          <div className="ms-3 d-flex">
+            <div>
+              {!user?.email ? (
+                <div>
+                  <Link
+                    to="/login"
+                    className="btn btn-dark text-decoration-none text-white fw-bold me-3"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="register"
+                    className="btn btn-dark text-decoration-none text-white fw-bold"
+                  >
+                    Register
+                  </Link>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+            <div>
+              {user?.email ? (
+                <div>
+                  <img
+                    style={({ width: "50px" }, { height: "50px" })}
+                    className=" rounded me-3"
+                    src={user?.photoURL}
+                    alt="Profile"
+                  />
+                  <Link
+                    className="btn btn-dark text-decoration-none text-white fw-bold"
+                    onClick={LogOut}
+                    to=""
+                  >
+                    Log Out
+                  </Link>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

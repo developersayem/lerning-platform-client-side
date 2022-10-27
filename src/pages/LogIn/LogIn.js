@@ -7,8 +7,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const [success, setSuccess] = useState(false);
-
-  const { LogInUser } = useContext(AuthContext);
+  const { LogInUser, googleLogin, githubLogin } = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -45,17 +44,25 @@ const LogIn = () => {
         </div>
         <div className="d-flex mt-3 justify-content-center w-100">
           <Button className="w-100 fw-bold" variant="warning" type="submit">
-            Register
+            Log In
           </Button>
         </div>
         <div className="d-flex justify-content-center mt-2">
           <p className="fw-bold">OR</p>
         </div>
         <div className="d-flex justify-content-between w-100">
-          <Button className="w-50 me-3" variant="outline-success" type="submit">
+          <Button
+            className="w-50 me-3"
+            variant="outline-success"
+            onClick={googleLogin}
+          >
             <FaGoogle />
           </Button>
-          <Button className="w-50 ms-3" variant="outline-dark" type="submit">
+          <Button
+            className="w-50 ms-3"
+            variant="outline-dark"
+            onClick={githubLogin}
+          >
             <FaGithub />
           </Button>
         </div>
