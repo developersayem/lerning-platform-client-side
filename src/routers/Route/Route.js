@@ -8,6 +8,8 @@ import Faq from "../../pages/Faq/Faq";
 import CourseDetails from "../../pages/Courses/CoursesDetails/CourseDetails";
 import ChackOut from "../../pages/ChackOut/ChackOut";
 import NotFound from "../../pages/NotFound/NotFound";
+import Register from "../../pages/Register/Register";
+import LogIn from "../../pages/LogIn/LogIn";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ export const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/login",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
       {
         path: "/courses/categories/details/chackout/:id",
